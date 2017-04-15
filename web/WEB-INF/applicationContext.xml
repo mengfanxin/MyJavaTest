@@ -25,5 +25,9 @@
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"/>
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" p:dataSource-ref="dataSource"/>
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" p:dataSource-ref="dataSource"/>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <context:component-scan base-package="org.fkit.hrm"/>
+
 
 </beans>

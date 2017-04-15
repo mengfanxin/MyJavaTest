@@ -35,7 +35,8 @@ public interface DocumentDao {
     //动态修改文档
     @SelectProvider(type = DocumentDynaSqlProvider.class,method = "updateDocument")
     void update(Document document);
-
+    @Select("select * from "+DOCUMENTTABLE+" where ID = #{id}")
+    Document selectById(int id);
 
 
 

@@ -17,9 +17,9 @@ import static org.fkit.hrm.util.HrmConstants.JOBTABLE;
 public interface JobDao {
 
     @Select("SELECT * from"+JOBTABLE+" where id = #{id}")
-    Job SelectById(int id);
+    Job selectById(int id);
     @Select("SELECT * from "+JOBTABLE+" ")
-    List<Job> SelectAllJob();
+    List<Job> selectAllJob();
     //动态查询
     @SelectProvider(type = JobDynaSqlProvider.class, method = "selectWithParam")
     List<Job> selectByPage(Map<String,Object> params);
